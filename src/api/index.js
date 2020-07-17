@@ -1,39 +1,17 @@
-import firebase from "./firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 
-const { auth, googleProvider, database } = firebase();
-
-export const login = (dispatch) => {
-  const user = auth.currentUser;
-  console.log(">", user);
-
-  if (!user) {
-    auth.signInWithPopup(googleProvider);
-    auth.onAuthStateChanged(dispatch);
-  }
+const config = {
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASEURL,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
 };
 
-export const logout = () => {
-  auth.signOut();
-};
+firebase.initializeApp(config);
 
-export const saveUser = ({ name, surname, email }) => {
-  const { uid } = auth.currentUser;
-  const payload = {
-    uid,
-    name,
-    surname,
-    email,
-  };
-
-  const userKey = database.ref().child("users").push().key;
-
-  let updates = {
-    [`/users/${userKey}`]: payload,
-  };
-
-  database.ref().update(updates);
-};
-
-export const saveProperty = (property) => {};
-
-export const filterProperties = (filter) => {};
+export default firebase;

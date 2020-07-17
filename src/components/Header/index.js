@@ -3,7 +3,16 @@ import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
 
-import { Container, Nav, Section, Menu, MenuItem } from "./styles";
+import {
+  Container,
+  Nav,
+  Section,
+  Menu,
+  MenuItem,
+  SearchWrapper,
+  SearchInput,
+  SearchButton,
+} from "./styles";
 
 function Header() {
   return (
@@ -23,10 +32,17 @@ function Header() {
           <MenuItem>
             <Link to="/about">About</Link>
           </MenuItem>
+          <MenuItem>
+            <Link to="/login">Login</Link>
+          </MenuItem>
         </Menu>
       </Nav>
       <Section>
         <h1>Where do you want to go today?</h1>
+        <SearchWrapper>
+          <SearchInput />
+          <SearchButton>Buscar</SearchButton>
+        </SearchWrapper>
       </Section>
     </Container>
   );

@@ -6,7 +6,6 @@ import Routers from "./routers";
 import store, { persistor } from "./redux";
 
 import './styles/reset.scss'
-// import { Container } from './styles';
 
 function App() {
   return (

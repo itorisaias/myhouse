@@ -3,7 +3,7 @@ import React from "react";
 // import { Container } from './styles';
 
 function Search() {
-  return <div />;
+  return <div>search</div>;
 }
 
 export default Search;

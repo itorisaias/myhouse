@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Logo from "../Logo";
+// import Logo from "../Logo";
 
 import {
   Container,
@@ -18,7 +18,6 @@ function Header() {
   return (
     <Container>
       <Nav>
-        <Logo />
         <Menu>
           <MenuItem>
             <Link to="/">Home</Link>
